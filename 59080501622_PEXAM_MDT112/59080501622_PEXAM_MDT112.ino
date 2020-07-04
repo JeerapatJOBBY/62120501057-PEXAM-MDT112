@@ -38,6 +38,13 @@ void setup(){
     MILLTIME =1;
     }//3
 
+    if (MILLTIME == 1 && cuurrentTime - lasttimeStrateChange >= 800)
+    {
+    stepper.moveRelativeInSteps(-1024);
+    Serial.println("Step CCW 180  Degrees");
+    MILLTIME =2;
+    }//4
+
     
 
 

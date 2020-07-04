@@ -12,18 +12,21 @@ const int MOTOR_IN4_PIN = 5;
 const int STEPS_PER_REVOLUTION = 2048;
     
 TinyStepper_28BYJ_48 stepper;
+Adafruit_SSD1306 oled = Adafruit_SSD1306(128, 32, &Wire);
 
-int MILLTIME =0;
+int Time = 1;
 long lasttimeStrateChange = 0;
 void setup(){
-    
-    long cuurrentTime = millis();
-
     pinMode(2,INPUT_PULLUP);
     pinMode(8, OUTPUT);
     Serial.begin(9600);
     stepper.connectToPins(MOTOR_IN1_PIN, MOTOR_IN2_PIN, MOTOR_IN3_PIN, MOTOR_IN4_PIN);
-
+}
+int MILLTIME =0;
+void loop(){
+    long cuurrentTime = millis();
+if (Time == 1)
+{
     tone(8,800,400);// 1.
 
     Serial.println("Hello MDT!!");// 2.
@@ -45,18 +48,16 @@ void setup(){
     MILLTIME =2;
     }//4
 
-    
+    if (MILLTIME == 2 && cuurrentTime - lasttimeStrateChange >= 1000) {
+    oled.clearDisplay();
+    oled.setCursor(32,15);
+    oled.setTextColor(SSD1306_WHITE);
+    oled.setTextSize(1);
+    oled.print("Hello MDT!!");
+    oled.display();
 
-
-
-
-
-
-
-
-
+    MILLTIME=3;
+    }//5
 }
-
-void loop(){
 
 }

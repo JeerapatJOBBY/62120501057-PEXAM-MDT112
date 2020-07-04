@@ -8,6 +8,9 @@ void setup(){
     pinMode(2,INPUT_PULLUP);
     pinMode(8, OUTPUT);
     Serial.begin(9600);
+
+    tone(8,800,400);
+
 }
 
 void loop(){

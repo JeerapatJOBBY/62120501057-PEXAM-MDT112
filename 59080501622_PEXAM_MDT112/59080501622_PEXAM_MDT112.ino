@@ -80,85 +80,26 @@ if (Time == 1)
     }//6
 
 }
-if (Time == 2 ) 
+for (int x = 0 ; x <= 8 ; x++)
 {
     bool currentSteate = digitalRead(2);
     if(laststate > currentSteate)
     {
+
         Timetopush++;
-        TimeAWS7++;
+        tone(8,800,100);
+        stepper.moveRelativeInSteps(512);
+        
+
     }
     laststate = currentSteate;
     delay(50);
 
-    if(Timetopush == 1 && TimeAWS7 == 1)
-    {
-        stepper.setSpeedInStepsPerSecond(256);
-        stepper.setAccelerationInStepsPerSecondPerSecond(512);
-        stepper.moveRelativeInSteps(512);
-
-        TimeAWS7 =0;
+    if (Timetopush == 8) {
+    tone(8,800,400);
+    stepper.moveRelativeInSteps(-512);
+    Timetopush=0;
     }
-    if(Timetopush == 2 && TimeAWS7 == 1)
-    {
-        stepper.setSpeedInStepsPerSecond(256);
-        stepper.setAccelerationInStepsPerSecondPerSecond(512);
-        stepper.moveRelativeInSteps(512);
-
-        TimeAWS7 =0;
-    }
-    if(Timetopush == 3 && TimeAWS7 == 1)
-    {
-        stepper.setSpeedInStepsPerSecond(256);
-        stepper.setAccelerationInStepsPerSecondPerSecond(512);
-        stepper.moveRelativeInSteps(512);
-
-        TimeAWS7 =0;
-    }
-    if(Timetopush == 4 && TimeAWS7 == 1)
-    {
-        stepper.setSpeedInStepsPerSecond(256);
-        stepper.setAccelerationInStepsPerSecondPerSecond(512);
-        stepper.moveRelativeInSteps(512);
-
-        TimeAWS7 =0;
-    }
-    if(Timetopush == 5 && TimeAWS7 == 1)
-    {
-        stepper.setSpeedInStepsPerSecond(256);
-        stepper.setAccelerationInStepsPerSecondPerSecond(512);
-        stepper.moveRelativeInSteps(512);
-
-        TimeAWS7 =0;
-    }
-    if(Timetopush == 6 && TimeAWS7 == 1)
-    {
-        stepper.setSpeedInStepsPerSecond(256);
-        stepper.setAccelerationInStepsPerSecondPerSecond(512);
-        stepper.moveRelativeInSteps(512);
-
-        TimeAWS7 =0;
-    }
-    if(Timetopush == 7 && TimeAWS7 == 1)
-    {
-        stepper.setSpeedInStepsPerSecond(256);
-        stepper.setAccelerationInStepsPerSecondPerSecond(512);
-        stepper.moveRelativeInSteps(512);
-
-        TimeAWS7 =0;
-    }
-    if (Timetopush ==8 && TimeAWS7 == 1) 
-    {   
-        stepper.setSpeedInStepsPerSecond(256);
-        stepper.setAccelerationInStepsPerSecondPerSecond(512);
-        stepper.moveRelativeInSteps(-512);
-        Timetopush =0;
-    }
-    
-
-    
-
-    
 }
 
 }

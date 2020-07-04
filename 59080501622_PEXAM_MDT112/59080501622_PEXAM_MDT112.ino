@@ -11,6 +11,8 @@ void setup(){
 
     tone(8,800,400);
 
+    Serial.println("Hello MDT!!");
+
 }
 
 void loop(){

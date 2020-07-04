@@ -38,7 +38,7 @@ if (Time == 1)
     stepper.setSpeedInStepsPerSecond(256);
     stepper.setAccelerationInStepsPerSecondPerSecond(512);
 
-    if (MILLTIME == 0 && cuurrentTime - lasttimeStrateChange >= 800)
+    if (MILLTIME == 0 && cuurrentTime - lasttimeStrateChange >= 800 && Time == 1)
     {
     stepper.moveRelativeInSteps(512);
     Serial.println("Step CW 90  Degrees");
@@ -46,7 +46,7 @@ if (Time == 1)
     MILLTIME =1;
     }//3
 
-    if (MILLTIME == 1 && cuurrentTime - lasttimeStrateChange >= 800)
+    if (MILLTIME == 1 & cuurrentTime - lasttimeStrateChange >= 800 && Time == 1)
     {
     stepper.moveRelativeInSteps(-1024);
     Serial.println("Step CCW 180  Degrees");
@@ -54,7 +54,7 @@ if (Time == 1)
     MILLTIME =2;
     }//4
 
-    if (MILLTIME == 2 && cuurrentTime - lasttimeStrateChange >= 1000) {
+    if (MILLTIME == 2 & cuurrentTime - lasttimeStrateChange >= 1000 && Time == 1) {
     oled.clearDisplay();
     oled.setCursor(32,15);
     oled.setTextColor(SSD1306_WHITE);
@@ -65,20 +65,19 @@ if (Time == 1)
     MILLTIME=3;
     }//5
 
-    if (MILLTIME == 3 && cuurrentTime - lasttimeStrateChange >= 10) {
+    if (MILLTIME == 3 & cuurrentTime - lasttimeStrateChange >= 10 && Time == 1) {
     oled.clearDisplay();
     oled.display();
     lasttimeStrateChange = cuurrentTime;
     MILLTIME=4;
     }//5
 
-    if (MILLTIME == 4 && cuurrentTime - lasttimeStrateChange >= 350) {
+    if (MILLTIME == 4 & cuurrentTime - lasttimeStrateChange >= 350 && Time == 1) {
     tone(8,500,200);
     lasttimeStrateChange = cuurrentTime;
     MILLTIME=5;
     Time =2;
     }//6
-
 }
 for (int x = 0 ; x <= 8 ; x++)
 {

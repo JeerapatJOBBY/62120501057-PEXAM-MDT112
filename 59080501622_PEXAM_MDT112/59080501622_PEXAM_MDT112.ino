@@ -147,6 +147,13 @@ if (Time == 2 )
 
         TimeAWS7 =0;
     }
+    if (Timetopush ==8 && TimeAWS7 == 1) 
+    {   
+        stepper.setSpeedInStepsPerSecond(256);
+        stepper.setAccelerationInStepsPerSecondPerSecond(512);
+        stepper.moveRelativeInSteps(-512);
+        Timetopush =0;
+    }
     
 
     

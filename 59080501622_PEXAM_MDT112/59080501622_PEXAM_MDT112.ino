@@ -35,7 +35,7 @@ void setup(){
     {
     stepper.moveRelativeInSteps(512);
     Serial.println("Step CCW 180  Degrees");
-    MILLTIME = 1;
+    MILLTIME =1;
     }//3
 
     

@@ -89,7 +89,25 @@ for (int x = 0 ; x <= 8 ; x++)
         Timetopush++;
         tone(8,800,100);
         stepper.moveRelativeInSteps(512);
-        
+
+        oled.clearDisplay();
+        oled.setCursor(10,15);
+        oled.setTextColor(SSD1306_WHITE);
+        oled.setTextSize(1);
+        oled.print("Step: ");
+        oled.display();
+
+        oled.setCursor(13,15);
+        oled.setTextColor(SSD1306_WHITE);
+        oled.setTextSize(1);
+        oled.print(Timetopush*90);
+        oled.display();
+
+        oled.setCursor(18,15);
+        oled.setTextColor(SSD1306_WHITE);
+        oled.setTextSize(1);
+        oled.print("Degress !!");
+        oled.display();
 
     }
     laststate = currentSteate;

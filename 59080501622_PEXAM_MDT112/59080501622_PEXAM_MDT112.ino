@@ -55,9 +55,24 @@ if (Time == 1)
     oled.setTextSize(1);
     oled.print("Hello MDT!!");
     oled.display();
-
     MILLTIME=3;
     }//5
+
+    if (MILLTIME == 3 && cuurrentTime - lasttimeStrateChange >= 10) {
+    oled.clearDisplay();
+    oled.display();
+    MILLTIME=4;
+    }//5
+
+    if (MILLTIME == 4 && cuurrentTime - lasttimeStrateChange >= 350) {
+    tone(8,500,200);
+    MILLTIME=5;
+    Time =2;
+    }//6
+
+}
+if (Time == 2 ) {
+    
 }
 
 }
